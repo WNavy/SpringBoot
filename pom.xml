@@ -8,6 +8,7 @@
   <name>spring Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <!--启动父依赖-->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -22,10 +23,24 @@
       <scope>test</scope>
     </dependency>
 
+    <!--spring boot web依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <version>1.4.3.RELEASE</version>
+    </dependency>
+
+    <!--spring boot 自定义配置文件注解依赖-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <optional>true</optional>
+    </dependency>
+
+    <!--spring boot test 依赖-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
   </dependencies>
 
