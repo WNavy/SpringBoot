@@ -2,6 +2,7 @@ package com;
 
 import com.whj.springboot.property.HelloProperties;
 import com.whj.springboot.property.UserProperties;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * CommandLineRunner中的run()方法，在应用程序启动之后首先被调用
  */
 @SpringBootApplication
+//接口类扫描配置，注册mapper接口类
+@MapperScan("com.whj.springboot.mapper")
 public class Application implements CommandLineRunner {
 
     @Autowired
@@ -27,7 +30,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        System.out.println(helloProperties.toString());
-        System.out.println(userProperties.toString());
+        //System.out.println(helloProperties.toString());
+        //System.out.println(userProperties.toString());
     }
 }
