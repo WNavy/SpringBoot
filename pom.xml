@@ -31,6 +31,12 @@
       <version>1.4.3.RELEASE</version>
     </dependency>
 
+    <!--aop依赖-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+
     <!--spring boot 自定义配置文件注解依赖-->
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -77,6 +83,12 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
   </dependencies>
 
 
