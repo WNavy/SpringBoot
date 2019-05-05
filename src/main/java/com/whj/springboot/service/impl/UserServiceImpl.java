@@ -27,6 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void insert(User user) {
-        redisTemplate.opsForValue().set(user.getId(), JSON.toJSON(user));
+        redisTemplate.opsForValue().set(user.getId(), user);
     }
 }

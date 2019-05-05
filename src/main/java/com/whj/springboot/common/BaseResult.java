@@ -10,21 +10,21 @@ import lombok.Data;
 @Data
 public class BaseResult<T> {
 
-    private String status;
+    private String code;
 
     private String message;
 
     private Object data;
 
 
-    public BaseResult(String status, String message,T data) {
-        this.status = status;
+    public BaseResult(String code, String message,T data) {
+        this.code = code;
         this.message = message;
         this.data = data;
     }
 
     public BaseResult(String status, String message) {
-        this.status = status;
+        this.code = status;
         this.message = message;
     }
 
@@ -38,6 +38,10 @@ public class BaseResult<T> {
 
     public static <T> BaseResult<T> failed(String message){
         return new BaseResult("4000",message);
+    }
+
+    public static <T> BaseResult<T> failed(String code,String message){
+        return new BaseResult(code,message);
     }
 
 }

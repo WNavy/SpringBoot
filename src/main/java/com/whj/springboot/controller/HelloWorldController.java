@@ -2,6 +2,7 @@ package com.whj.springboot.controller;
 
 import com.whj.springboot.common.BaseResult;
 import com.whj.springboot.domain.User;
+import com.whj.springboot.exception.MyException;
 import com.whj.springboot.group.insertGroup;
 import com.whj.springboot.group.selectGroup;
 import com.whj.springboot.properties.MailProperties;
@@ -40,5 +41,15 @@ public class HelloWorldController {
     public BaseResult insert(@RequestBody @Validated(value = {insertGroup.class}) User user){
         userService.insert(user);
         return BaseResult.success();
+    }
+
+    @PostMapping("/test1")
+    public BaseResult exceptionTest1() throws Exception {
+        throw new Exception("Exception。。。。。");
+    }
+
+    @PostMapping("/test2")
+    public BaseResult exceptionTest2() throws MyException {
+        throw new MyException("MyExcepton....");
     }
 }
