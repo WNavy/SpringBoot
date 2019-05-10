@@ -7,6 +7,7 @@ import com.whj.springboot.group.insertGroup;
 import com.whj.springboot.group.selectGroup;
 import com.whj.springboot.properties.MailProperties;
 import com.whj.springboot.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api/hello")
+@Slf4j
 public class HelloWorldController {
 
     @Autowired
@@ -45,6 +47,7 @@ public class HelloWorldController {
 
     @PostMapping("/test1")
     public BaseResult exceptionTest1() throws Exception {
+        log.info("开始执行test1接口方法。。。");
         throw new Exception("Exception。。。。。");
     }
 

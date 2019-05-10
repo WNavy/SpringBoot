@@ -27,6 +27,7 @@ public class MyAspectConfig {
 
     @Around(value = "addAdvice()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        log.info("开始进入增强around方法。。。");
         //获取session信息
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();

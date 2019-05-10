@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whj.springboot.mapper.PersonMapper">
+    <resultMap id="baseResult" type="com.whj.springboot.domain.Person">
+        <result column="id" property="id" />
+        <result column="name" property="name"/>
+        <result column="birthday" property="birthDay"/>
+        <result column="address" property="address"/>
+    </resultMap>
+
+    <sql id="allColumn">
+       id,name,birthday,address
+    </sql>
+
+    <insert id="insert" parameterType="com.whj.springboot.domain.Person" useGeneratedKeys="true" keyProperty="id">
+        insert into t_person(name,birthday,address) values (#{name},#{birthDay},#{address})
+    </insert>
+
+    <delete id="delete">
+        delete from t_person where id = #{id}
+    </delete>
+
+    <update id="update">
+        update t_person
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="birthDay != null">
+                birthday = #{birthDay},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <select id="selectById" resultMap="baseResult">
+        select <include refid="allColumn"/> from t_person where id = #{id}
+    </select>
+
+    <select id="selectByPage" resultMap="baseResult">
+        select <include refid="allColumn"/> from t_person
+    </select>
+</mapper>
