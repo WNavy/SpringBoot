@@ -41,6 +41,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person selectById(Integer id) {
+        log.info("执行selectById方法。。。。。");
         Person person = mapper.selectById(id);
         return person;
     }

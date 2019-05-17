@@ -28,6 +28,11 @@ public class HelloWorldController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/say")
+    public String hello(){
+        return "hello";
+    }
+
     @PostMapping("/mail")
     public BaseResult getMail(){
         return BaseResult.success(properties);

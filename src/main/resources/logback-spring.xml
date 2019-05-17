@@ -33,17 +33,15 @@
         <file>${log.file}.log</file>
         <append>false</append>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 按照每天备份生成日志文件 %d可以包含一个时间格式，默认格式为yyyy-MM-dd  -->
             <fileNamePattern>${log.file}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!--每个文件大小限制64M，超过设置fileNamePattern中的%i会自增(默认是10M)-->
-                <maxFileSize>64MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!--每个文件大小限制64M，超过设置fileNamePattern中的%i会自增(默认是10M)-->
+            <maxFileSize>64MB</maxFileSize>
             <!--只保留最近90天的日志-->
             <maxHistory>90</maxHistory>
             <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
-            <totalSizeCap>1GB</totalSizeCap>
+            <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出-->
